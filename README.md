@@ -1,37 +1,24 @@
-## Welcome to GitHub Pages
+Inspiration
+We can't draw. We use machine learning. We create modern art.
 
-You can use the [editor on GitHub](https://github.com/shadowninjazx/Neural-Network-Face-Generator/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+What it does
+We use fundamental concepts of a generative adversarial network (GAN) to use GPUs to generate artwork. A GAN consists of two neural networks: a generator network and a discriminator network. The generator network generates noise that resembles a training set of pictures. The discriminator networks compares the training set pictures and the generated pictures and decides if a generated pictures is "real" or "fake." The "real" pictures are then saved.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+How we built it
+We followed documentation of opencv to preprocess over eleven thousand training images. We interpolated the images to downscale them into 64 by 64 pixels; then we converted the images into gray scale for faster training time. We made layers for the neural networks with Keras and TensorFlow. We trained the networks on laptop GPUs.
 
-### Markdown
+We then feed the generated 64x64 pixel "face" into a scale-up network and then a recolor network online. The networks uses the opensource Keras pre-trained convolutional neural network VGG16.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Challenges we ran into
+The original networks was too large to fit into the vRAM of laptop GPUs, so we lowered the batch size of the training program from 128 pictures per batch into 64 pictures per batch to reduce vRAM usage. By doing so, we also increase the training time.
 
-```markdown
-Syntax highlighted code block
+Accomplishments that we're proud of
+The network generated pictures that somewhat resembles the human face.
 
-# Header 1
-## Header 2
-### Header 3
+What we learned
+It is difficult to work with Tensorflow and CUDA packages on Windows, and it should be easier on Linux. GPUs are much more powerful than CPU in machine learning tasks involving layers and matrix multiplication.
 
-- Bulleted
-- List
+What's next for Neural Network Face Generator
+Adding a lambda layer to increase accuracy of the network.
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/shadowninjazx/Neural-Network-Face-Generator/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Built With
