@@ -19,7 +19,7 @@ We then feed the generated 64x64 pixel "face" into a scale-up network and then a
 ![Image of Late Batch](https://raw.githubusercontent.com/shadowninjazx/Neural-Network-Face-Generator/master/image_81_100.png)
 
 ## Challenges we ran into
-The original networks were too large to fit into the vRAM of laptop GPUs, so we lowered the batch size of the training program from 128 pictures per batch into 64 pictures per batch to reduce vRAM usage. By doing so, we also increased the training time. 
+The original networks were too large to fit into the vRAM of laptop GPUs, so we lowered the batch size of the training program from 128 pictures per batch to 64 pictures per batch to reduce vRAM usage. By doing so, we also increased the training time. 
 
 ## Accomplishments that we're proud of
 The network generated pictures that somewhat resemble the human face. 
